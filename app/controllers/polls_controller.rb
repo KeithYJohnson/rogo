@@ -10,7 +10,7 @@ class PollsController < ApplicationController
     # render @polls, :locals => {:message_body => @message_body}
     # # render text: params
     # SMSLogger.log_text_message from_number, message_body
-    @city = params[:FromCity].capitalize
+    @city = params[:FromCity]
     @state = params[:FromState]
     render 'process_sms.xml.erb', :content_type => 'text/xml'
 
