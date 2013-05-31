@@ -12,11 +12,17 @@ class PollsController < ApplicationController
     # SMSLogger.log_text_message from_number, message_body
     @city = params[:FromCity]
     @state = params[:FromState]
-    render 'process_sms.xml.erb', :content_type => 'text/xml'
+    @polls
+    # render 'process_sms.xml.erb', :content_type => 'text/xml'
 
   end
 
   def show
+    
+  end
+
+  def process_sms
+
   end
 
   def update

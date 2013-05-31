@@ -31,6 +31,7 @@ group :test do
   gem 'faker'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
+  gem 'twilio-test-toolkit'
 end
 
 # Gems used only for assets and not required

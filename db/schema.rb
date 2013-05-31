@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529002450) do
+ActiveRecord::Schema.define(:version => 20130530020301) do
+
+  create_table "responses", :force => true do |t|
+    t.string   "sid"
+    t.string   "date_created"
+    t.string   "date_updated"
+    t.string   "date_sent"
+    t.string   "account_sid"
+    t.string   "to"
+    t.string   "from"
+    t.string   "body"
+    t.string   "status"
+    t.string   "direction"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

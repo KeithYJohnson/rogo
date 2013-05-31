@@ -31,7 +31,7 @@ ul#nav{
 ul#nav li {
   list-style: none;
   float: left;
-  display: inline-block;
+  displayy: inline-block;
   margin-top: auto;
   margin-bottom: auto; 
 }

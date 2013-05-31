@@ -6,11 +6,20 @@ TWILIO_NUMBER = "+15552716628"
 
 describe PollsController do
 
-  describe "GET 'index'" do
+  describe "post to index" do
+    before do
+      text = File.open('spec/json/samplejson.json', "r").read
+      params = JSON.parse(text)
+      post :index, params
+    end
     it "returns http success" do
       get 'index'
       response.should be_success
     end
+  end
+
+  describe "GET 'index'" do
+
   end
 
   describe "GET 'show'" do
