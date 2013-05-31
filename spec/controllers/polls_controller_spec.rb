@@ -1,8 +1,5 @@
 require 'spec_helper'
 
-TWILIO_SID = "0923408203840918302481203948012837"
-TWILIO_AUTH = "629876927863496102023472376432234"
-TWILIO_NUMBER = "+15552716628"
 
 describe PollsController do
 
@@ -10,8 +7,10 @@ describe PollsController do
     before do
       text = File.open('spec/json/samplejson.json', "r").read
       params = JSON.parse(text)
+
       post :index, params
     end
+
     it "returns http success" do
       get 'index'
       response.should be_success
@@ -49,5 +48,5 @@ describe PollsController do
       response.should be_success
     end
   end
-
 end
+

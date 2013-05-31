@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530020301) do
+ActiveRecord::Schema.define(:version => 20130531025255) do
 
   create_table "responses", :force => true do |t|
     t.string   "sid"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(:version => 20130530020301) do
     t.string   "body"
     t.string   "status"
     t.string   "direction"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "sms", :force => true do |t|
+    t.string   "sid"
+    t.string   "date_create"
+    t.string   "date_updated"
+    t.string   "date_sent"
+    t.string   "account_sid"
+    t.string   "to"
+    t.string   "from"
+    t.string   "body"
+    t.string   "status"
+    t.string   "direction"
+    t.string   "uri"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
