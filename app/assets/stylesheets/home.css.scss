@@ -25,7 +25,7 @@ body{
 .navcontainer{
   width: 100%;
   background: #222222;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   text-align: center;
@@ -35,6 +35,10 @@ body{
 
     margin-top: auto;
     margin-bottom:auto;
-    padding-bottom:1em;
+    padding-bottom:1rem;
   }
+  // #middle{
+  //   width:420px;
+  //   margin: auto;
+  // }
 }

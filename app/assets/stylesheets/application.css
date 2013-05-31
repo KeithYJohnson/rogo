@@ -31,7 +31,7 @@ ul#nav{
 ul#nav li {
   list-style: none;
   float: left;
-  displayy: inline-block;
+  display: inline-block;
   margin-top: auto;
   margin-bottom: auto; 
 }
@@ -39,10 +39,12 @@ ul#nav li {
 #nav a:link {
   text-decoration: none;
   float: left;
-  margin-left: 15px;
+  /*margin-left: 15px;*/
   font-family: Domine;
   text-transform: uppercase;
   font-size: 25px;
+  padding-left: 15px;
+
   
   -webkit-transition-duration: 0.35s
 }
