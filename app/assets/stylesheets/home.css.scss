@@ -1,3 +1,40 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  font-size: 62.5%;
+}
+
+body{
+  background-image: url('putabirdonit.jpg')
+}
+
+.page-titles{
+  font-family: Domine;
+  color: #222222;
+  padding-left: 1rem;
+  h1 {
+    font-size: 5rem;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+}
+
+.navcontainer{
+  width: 100%;
+  background: #222222;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  vertical-align: middles;
+  ul li{
+    // padding-left: 10rem;
+
+    margin-top: auto;
+    margin-bottom:auto;
+    padding-bottom:1em;
+  }
+}
