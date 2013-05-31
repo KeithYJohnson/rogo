@@ -1,4 +1,8 @@
 Survey::Application.routes.draw do
+  get "sms/index"
+
+  get "sms/create"
+
   devise_for :users
 
   get "polls/index"
