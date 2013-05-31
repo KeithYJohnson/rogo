@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :polls
+
   def self.retrieve_twilio_user(account_sid, auth_token)
     @client = Twilio::Twilio::REST::Client.new account_sid, auth_token
     return client
