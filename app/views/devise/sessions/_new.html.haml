@@ -1,0 +1,13 @@
+.login{:style => 'display:none'}
+  %ul
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %li
+      = f.label :email do
+        = f.email_field :email, :autofocus => false, :placeholder=>'@email'
+    %li
+      = f.label :password do
+        = f.password_field :password, :placeholder=>'Password'
+    - if devise_mapping.rememberable?
+      = f.check_box :remember_me
+      = f.label :remember_me
+    %li= f.submit "Sign in"

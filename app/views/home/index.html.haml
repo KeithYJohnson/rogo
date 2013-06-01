@@ -8,10 +8,10 @@
     %ul#nav
       %li
         = link_to 'About', '#'
-      %li
-        = link_to 'Sign Up', new_user_registration_path
-      %li
+      %li#signup
+        = link_to 'Sign Up', '#', :id => "signup"
         = render 'devise/registrations/new'
-      %li
-        = link_to 'Login', new_user_session_path
+      %li#login
+        = link_to 'Login', '#', :id =>'login'
+        = render 'devise/sessions/new'
 

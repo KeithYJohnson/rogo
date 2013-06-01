@@ -19,7 +19,7 @@ body{
 div.page-titles{
   font-family: Domine;
   color: $gray;
-  // Current a Hack to line up with li el's
+  // padding is a Hack to line up with li el's
   padding-left: 42px;
 
   h1 {
@@ -84,18 +84,19 @@ div.page-titles{
 // RegistrationFields and Partials
 .registration{
   display: inline-block;
-
   #new_user{
-
 
     input {
     border-radius: 10px;
     height:30px;
-    padding-left: 5px;
     display: inline-block;
-    float:left
+    float:left;
+    border:none;
+    focus: none;
     }
   }
+}
 
-
+.login{
+  @extend .registration
 }
