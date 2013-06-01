@@ -7,7 +7,7 @@
     %li
       = f.label :password do
         = f.password_field :password, :placeholder=>'Password'
-    - if devise_mapping.rememberable?
-      = f.check_box :remember_me
-      = f.label :remember_me
     %li= f.submit "Sign in"
+    - if devise_mapping.rememberable?
+      / = f.check_box :remember_me
+      / = f.label :remember_me

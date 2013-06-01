@@ -88,15 +88,20 @@ div.page-titles{
 
     input {
     border-radius: 10px;
-    height:30px;
+    height:26px;
     display: inline-block;
     float:left;
     border:none;
-    focus: none;
+    margin-left: 5px;
     }
   }
 }
 
 .login{
-  @extend .registration
+  @extend .registration;  
+
+  input#user_remember_me[type="checkbox"]:checked  {
+    height: 29px;
+    width: 29px;
+  }
 }
