@@ -2,14 +2,15 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
 
+
   $('a#signup').click(function(){
-    $('.registration').slideToggle('slow');
-    $('.login').hide();
+    $('.registration').toggle( "slide" );
+    $('.login').hide('slow');
   });
 
   $('a#login').click(function(){
-    $('.login').slideToggle('slow');
-    $('.registration').hide();
+    $('.login').toggle('slide');
+    $('.registration').hide('slow');
   });
 
 });

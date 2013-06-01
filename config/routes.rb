@@ -1,4 +1,6 @@
 Survey::Application.routes.draw do
+  get "registrations/after_sign_up_path_for"
+
   get "sms/index"
 
   get "sms/create"
