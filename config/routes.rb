@@ -1,11 +1,14 @@
 Survey::Application.routes.draw do
+
+  # :controllers => { :registrations => "registrations" },
+  # match '/dashboard' => 'home#dashboard', :as => 'user_root'
+  devise_for :users, :paths => { :sign_up => "dashboard" }
+
   get "registrations/after_sign_up_path_for"
 
   get "sms/index"
 
   get "sms/create"
-
-  devise_for :users
 
   get "polls/index"
 
@@ -18,6 +21,13 @@ Survey::Application.routes.draw do
   get "polls/new"
 
   get "home/index"
+  # match "dashboard" => "home#dashboard"
+
+  # get "home/dashboard", :to => "home#dashboard"
+
+  # Triggered by subclassed reg controller
+  # Passes along newly created user info.  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,6 +78,10 @@ Survey::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  authenticated do
+    root :to => 'home#dashboard'
+  end
+
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"

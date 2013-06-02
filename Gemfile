@@ -16,6 +16,8 @@ gem 'twilio-ruby'
 gem 'devise'
 gem 'haml'
 gem 'localtunnel'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 
 group :development, :test do
@@ -26,6 +28,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'meta_request'
   # gem 'rack-mini-profiler'
 end
 
