@@ -11,11 +11,17 @@ class PollsController < ApplicationController
     # # render text: params
     # SMSLogger.log_text_message from_number, message_body
 
-    @city = params[:FromCity]
-    @state = params[:FromState]
     @polls
     # render 'process_sms.xml.erb', :content_type => 'text/xml'
 
+  end
+
+  def create
+    @poll = Poll.create(params[:poll])
+  end
+
+  def new
+    @poll = Poll.new  
   end
 
   def show
@@ -29,9 +35,8 @@ class PollsController < ApplicationController
   def update
   end
 
-  def create
+  def edit
+
   end
 
-  def new
-  end
 end

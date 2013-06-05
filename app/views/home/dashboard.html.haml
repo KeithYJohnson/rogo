@@ -1,5 +1,23 @@
 %h1 Your Polls
 
-=  current_user.id
+.dashboard-wrapper.row
+  .user-polls.span6
+    %h1 Your Polls
+    %table.table.striped
+      = current_user.polls.each do |poll| 
+        %tr#poll.id
+          %td
+            =link_to "#{poll.title}", poll_path
+          %td
+            =link_to "Edit", edit_poll_path
+          %td
+            = link_to "Stop", :class => 'btn btn-danger'
 
-=render 'dashboard'
+  .create-polls.span6
+    = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
+
+
+
+
+  .svg
+    

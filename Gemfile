@@ -18,7 +18,7 @@ gem 'haml'
 gem 'localtunnel'
 gem 'better_errors'
 gem 'binding_of_caller'
-
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -49,7 +49,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'

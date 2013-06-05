@@ -1,0 +1,10 @@
+= form_for Poll.new, :class=>'create-poll-form', :remote => true do |f|
+  = f.text_field :title, :autofocus => true, :placeholder => "Poll Title"
+  = f.text_field :description, :placeholder => 'Description'
+  = f.submit "Create Poll", :class => 'btn btn-danger'
+  = form_for Question.new, :remote => true do |q|
+    = q.text_field :title, :autofocus => true, :placeholder => 'Ask the Audience'
+  = form_for Answer.new, :remote => true do |a|
+    = a.text_field :title, :autofocus => true, :placeholder => 'Option'
+
+

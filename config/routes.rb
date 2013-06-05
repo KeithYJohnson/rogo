@@ -1,8 +1,38 @@
 Survey::Application.routes.draw do
 
+  get "questions/show"
+
+  get "questions/create"
+
+  get "questions/new"
+
+  get "questions/update"
+
+  get "questions/edit"
+
+  get "questions/destroy"
+
+  get "answers/show"
+
+  get "answers/create"
+
+  get "answers/new"
+
+  get "answers/update"
+
+  get "answers/edit"
+
+  get "answers/destroy"
+
   # :controllers => { :registrations => "registrations" },
   # match '/dashboard' => 'home#dashboard', :as => 'user_root'
-  devise_for :users, :paths => { :sign_up => "dashboard" }
+  devise_for :users, :paths => { :sign_up => "dashboard" } do
+    resources :polls do
+      resources :questions, :except => [:index] do
+        resources :answer, :except => [:index]
+      end
+    end
+  end
 
   get "registrations/after_sign_up_path_for"
 
@@ -10,17 +40,15 @@ Survey::Application.routes.draw do
 
   get "sms/create"
 
-  get "polls/index"
-
-  get "polls/show"
-
-  get "polls/update"
-
-  get "polls/create"
-
-  get "polls/new"
-
   get "home/index"
+
+  
+  # An alternative way to route to the dashboard,
+  
+  # As it is, currently creating a second root for authenticated.  
+  # match 'home/dashboard' => 'home#dashboard', :as => :dashboard
+
+
   # match "dashboard" => "home#dashboard"
 
   # get "home/dashboard", :to => "home#dashboard"

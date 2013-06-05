@@ -4,12 +4,15 @@
     %title Survey
     = stylesheet_link_tag  "application", :media => "all"
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Domine'
-    / = stylesheet_link_tag 'bootstrap-responsive'
+    
+
+    = stylesheet_link_tag 'bootstrap-responsive'
     = javascript_include_tag "application"
     = csrf_meta_tags
     %meta{:charset => "utf-8"}/
 
   %body
+    =render 'layouts/nav'
     / %div#container
     /   %ul#nav
     /     %li 

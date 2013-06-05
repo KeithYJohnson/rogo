@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def after_sign_in_path_for(current_user)
-    current_user_path
-  end
+  # def after_sign_in_path_for(current_user)
+  #   dashboard_url
+  # end
 
 end
