@@ -1,1 +1,9 @@
 Show Page
+
+%h1= @poll.title 
+
+%ul
+  = for question in @poll.questions
+
+    %li
+      =question.content
