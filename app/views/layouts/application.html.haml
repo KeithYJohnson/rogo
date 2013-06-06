@@ -13,22 +13,6 @@
 
   %body
     =render 'layouts/nav'
-    / %div#container
-    /   %ul#nav
-    /     %li 
-    /       = link_to 'Home', root_url
-    /     %li
-    /       = link_to "About", root_url
-    /     %li 
-    /       = link_to "Contact", root_url
-    /     %li
-    /       - if current_user
-    /         %p Signed in as #{current_user.email}. Not you?
-    /         \#{link_to "Sign out", destroy_user_session_path, :method => :delete}
-    /       - else
-    /         = link_to "Sign up", new_user_registration_path
-    /         #{link_to "sign in", new_user_session_path}
-            
 
 
     / %p.notice= notice

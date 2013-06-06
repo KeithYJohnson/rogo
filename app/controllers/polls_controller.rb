@@ -17,15 +17,23 @@ class PollsController < ApplicationController
   end
 
   def create
-    @poll = Poll.create(params[:poll])
+    @poll = current_user.polls.new(params[:poll])
+    # @poll = Poll.create(params[:poll])
+    @poll.save!
+    redirect_to root_path
   end
 
   def new
     @poll = Poll.new  
+
+    1.times do
+      question = @poll.questions.build
+      2.times {question.answers.build}
+    end
   end
 
   def show
-    
+    @poll
   end
 
   def process_sms

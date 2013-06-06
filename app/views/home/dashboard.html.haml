@@ -7,9 +7,10 @@
       = current_user.polls.each do |poll| 
         %tr#poll.id
           %td
-            =link_to "#{poll.title}", poll_path
+            / Need to add (poll) as it needs the ID to match to the route.
+            =link_to "#{poll.title}", poll_path(poll)
           %td
-            =link_to "Edit", edit_poll_path
+            =link_to "Edit", edit_poll_path(poll)
           %td
             = link_to "Stop", :class => 'btn btn-danger'
 

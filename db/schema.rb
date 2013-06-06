@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130531160706) do
 
   create_table "responses", :force => true do |t|
     t.string   "sid"
-    t.string   "date_created"
+    t.string  date_created"
     t.string   "date_updated"
     t.string   "date_sent"
     t.string   "account_sid"

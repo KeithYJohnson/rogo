@@ -1,0 +1,12 @@
+%p
+
+  = f.label :title, "Question"
+  = f.text_field :title
+  = f.check_box :_destroy
+  = f.label :_destroy, "Remove Question"
+%p
+  = f.fields_for :answers do |builder|
+    = render "answers/answer_fields", :f => builder
+
+
+/ In order for this to work, it has to be enabled in the nested_attributes line in the survey model

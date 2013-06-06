@@ -1,5 +1,5 @@
 class Poll < ActiveRecord::Base
-  attr_accessible :description, :end_time, :start_time, :title, :user_id
+  attr_accessible :description, :end_time, :start_time, :title, :user_id, :questions_attributes
 
   belongs_to :user
   has_many :questions, :dependent => :destroy

@@ -1,22 +1,11 @@
-= form_for Poll.new, :class=>'create-poll-form', :remote => true do |f|
+= form_for @poll, :class=>'create-poll-form' do |f|
   = f.text_field :title, :autofocus => true, :placeholder => "Poll Title"
-  = f.text_field :description, :placeholder => 'Description'
-
-  / Required nested_attributes_for :questions in the polls model.  
-  /   = f.fields_for :questions do |builder| 
-  /   = render "question_fields", :f builder
-   /      or
-        / = builder.label :content, "Question" 
-        / = builder.test_field :content
-
-        / In order for this to work, it has to be enabled in the nested_attributes line in the survey model
-          / = builder.check_box :_destroy
-          / = builder.label :_destory, "Remove Question"
-  = form_for Question.new, :remote => true do |q|
-    = q.text_field :title, :autofocus => true, :placeholder => 'Ask the Audience'
-  = form_for Answer.new, :remote => true do |a|
-    = a.text_field :title, :autofocus => true, :placeholder => 'Option'
+  = f.text_field :description, :placeholder => 'Description'  
+  = f.fields_for :questions do |builder| 
+    = render "questions/question_fields", :f => builder
 
   = f.submit "Create Poll", :class => 'btn btn-danger'
+
+
 
 
