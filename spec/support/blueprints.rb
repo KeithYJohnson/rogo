@@ -7,3 +7,9 @@ require 'machinist/active_record'
 #     title { "Post #{sn}" }
 #     body  { "Lorem ipsum..." }
 #   end
+
+User.blueprint do
+  email {Faker::Internet.email}
+  password {'password'}
+  password_confirmation {'password'}
+end

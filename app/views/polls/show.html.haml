@@ -3,7 +3,7 @@ Show Page
 %h1= @poll.title 
 
 / %ul
-/   = for question in @poll.questions
-
+/   = for question in @poll.questions do |question|
 /     %li
-/       =question.content
+/       = question.title
+

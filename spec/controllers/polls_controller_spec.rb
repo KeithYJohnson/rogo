@@ -2,6 +2,11 @@ require 'spec_helper'
 
 
 describe PollsController do
+  before do
+    @user.make! 
+    sign_in @user
+  end
+
 
   describe "post to index" do
     before do
@@ -17,9 +22,18 @@ describe PollsController do
     end
   end
 
-  describe "GET 'index'" do
+  describe "creates a poll with Q&A" do
+    before do
+      post :create, :poll => {:title => "A Test Poll", "questions_attributes"=>{"0
+      "=>{"title"=>"With this poll pass the test?"}}}
+    end
 
+    it "should make a polls questions" do
+      expect(assigns(:poll)).to be_a_new(Poll)
+
+    end
   end
+
 
   describe "GET 'show'" do
     it "returns http success" do

@@ -17,8 +17,10 @@ class PollsController < ApplicationController
   end
 
   def create
+    binding.pry
     @poll = current_user.polls.new(params[:poll])
     # @poll = Poll.create(params[:poll])
+    binding.pry
     @poll.save!
     redirect_to root_path
   end
@@ -33,6 +35,7 @@ class PollsController < ApplicationController
   end
 
   def show
+    @poll = Poll.find(params[:id])
     @poll
   end
 

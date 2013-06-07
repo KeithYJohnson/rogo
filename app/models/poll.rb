@@ -1,5 +1,5 @@
 class Poll < ActiveRecord::Base
-  attr_accessible :description, :end_time, :start_time, :title, :user_id, :questions_attributes
+  attr_accessible :description, :end_time, :start_time, :title, :user_id, :questions_attributes, :is_live
 
   belongs_to :user
   has_many :questions, :dependent => :destroy
@@ -7,5 +7,6 @@ class Poll < ActiveRecord::Base
   has_many :sms, :through => :questions 
   has_many :feedbacks
 
-  accepts_nested_attributes_for :questions, :reject_if => lambda { |a| a[:content].blank?}, :allow_destroy => true
+  accepts_nested_attributes_for :questions, :allow_destroy => true
 end
+

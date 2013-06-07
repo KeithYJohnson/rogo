@@ -12,7 +12,11 @@
           %td
             =link_to "Edit", edit_poll_path(poll)
           %td
-            = link_to "Stop", :class => 'btn btn-danger'
+            - if poll.is_live
+              = link_to "Stop", :class => 'btn btn-danger'
+            - else
+              = link_to "Start", '#', :class=> 'btn btn-success btn-small'    
+
 
   .create-polls.span6
     = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
