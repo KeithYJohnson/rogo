@@ -27,7 +27,9 @@ Survey::Application.routes.draw do
   # :controllers => { :registrations => "registrations" },
   # match '/dashboard' => 'home#dashboard', :as => 'user_root'
   #, :paths => { :sign_up => "dashboard" }
-  devise_for :users do
+  devise_for :users 
+
+  resources :users do
     resources :polls do
       resources :questions, :except => [:index] do
         resources :answer, :except => [:index]
