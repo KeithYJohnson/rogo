@@ -59,6 +59,15 @@ class PollsController < ApplicationController
     end
   end
 
+  def toggle_live
+    @poll = Poll.find(params[:id])
+    
+    respond_to do |format|
+
+    end
+
+  end
+
   def edit
     @poll = Poll.find(params[:id])
     @questions = @poll.questions[0]

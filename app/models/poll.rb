@@ -8,5 +8,13 @@ class Poll < ActiveRecord::Base
   has_many :feedbacks
 
   accepts_nested_attributes_for :questions, :allow_destroy => true
+
+  def toggle_live
+    if self.is_live
+      self.is_live = false
+    else
+      self.is_live = true
+    end
+  end
 end
 

@@ -13,16 +13,14 @@
             =link_to "Edit", edit_poll_path(poll)
           %td
             - if poll.is_live
-              = link_to "Stop", :class => 'btn btn-danger'
+              = link_to "Stop", post, :method=>:toggle_live, :remote=>true :class => 'btn btn-danger'
             - else
-              = link_to "Start", '#', :class=> 'btn btn-success btn-small'    
+              = link_to "Start", post, :method => :toggle_live, :remote=>true :class=> 'btn btn-success btn-small',     
 
 
   .create-polls.span6
     = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
 
 
-
-
-  .svg
+/ <%= link_to 'Vote', post, :method => :add_point, :remote=>true %>
     

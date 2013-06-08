@@ -4,7 +4,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   def generate_sms_answer_code
-      
+        
   end
 
 end
