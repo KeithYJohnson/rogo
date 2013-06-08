@@ -1,7 +1,22 @@
 Show Page
 
 %h1= @poll.title 
+%p= @poll.description
 
+/Will have to change with multi-question feature.
+%h3= @question.title
+
+%ul Options
+= @answers.each do |answer|
+  %li
+    = answer.title
+%br
+=link_to "Dashboard", root_path, :class => 'btn btn-inverse'
+=link_to "Edit", edit_poll_path(@poll), :class => 'btn btn-inverse'
+
+
+
+  
 / %ul
 /   = for question in @poll.questions do |question|
 /     %li
