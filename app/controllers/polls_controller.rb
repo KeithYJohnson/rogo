@@ -36,6 +36,8 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
+    @question = @poll.questions[0]
+    @answers = @question.answers
     @poll
   end
 
@@ -44,10 +46,23 @@ class PollsController < ApplicationController
   end
 
   def update
+    @poll = Poll.find(params[:id])
+
+    respond_to do |format|
+      if @poll.update_attributes(params[:poll])
+        format.html { redirect_to @poll, notice: 'poll was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @poll.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
-
+    @poll = Poll.find(params[:id])
+    @questions = @poll.questions[0]
+    @answers = @questions.answers
   end
 
 end
