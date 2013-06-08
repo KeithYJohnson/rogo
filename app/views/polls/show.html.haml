@@ -3,22 +3,19 @@ Show Page
 %h1= @poll.title 
 %p= @poll.description
 
+/ My Twilio Number.  
+/ User will be able to purchase their own and 
+/ It will render here
+%h2 Text to 347-321-7539
+
 /Will have to change with multi-question feature.
 %h3= @question.title
 
-%ul Options
-= @answers.each do |answer|
-  %li
-    = answer.title
+%table.table.striped.table-hover
+  - @answers.each do |answer|
+    %tr
+      %td= answer.title
+      %td= "TEXT #{answer.id} to Vote"
 %br
 =link_to "Dashboard", root_path, :class => 'btn btn-inverse'
 =link_to "Edit", edit_poll_path(@poll), :class => 'btn btn-inverse'
-
-
-
-  
-/ %ul
-/   = for question in @poll.questions do |question|
-/     %li
-/       = question.title
-

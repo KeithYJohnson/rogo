@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608164744) do
+ActiveRecord::Schema.define(:version => 20130608223936) do
 
   create_table "answers", :force => true do |t|
     t.text     "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130608164744) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "sms_answer_code"
+    t.integer  "votes"
   end
 
   create_table "feedbacks", :force => true do |t|

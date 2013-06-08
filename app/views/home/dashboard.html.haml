@@ -4,7 +4,7 @@
   .user-polls.span6
     %h1 Your Polls
     %table.table.striped
-      = current_user.polls.each do |poll| 
+      - current_user.polls.each do |poll| 
         %tr#poll.id
           %td
             / Need to add (poll) as it needs the ID to match to the route.
