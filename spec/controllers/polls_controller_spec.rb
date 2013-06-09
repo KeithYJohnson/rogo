@@ -1,11 +1,14 @@
 require 'spec_helper'
+require 'machinist'
 
 
 describe PollsController do
-  before do
-    @user.make! 
-    sign_in @user
-  end
+  # before do
+  #   binding.pry
+  #   @user.make! 
+
+  #   sign_in @user
+  # end
 
 
   describe "post to index" do
@@ -22,15 +25,27 @@ describe PollsController do
     end
   end
 
-  describe "creates a poll with Q&A" do
+  # describe "creates a poll with Q&A" do
+  #   before do
+  #     post :create, :poll => {:title => "A Test Poll", "questions_attributes"=>{"0
+  #     "=>{"title"=>"With this poll pass the test?"}}}
+  #   end
+
+  #   it "should make a polls questions" do
+  #     expect(assigns(:poll)).to be_a_new(Poll)
+
+  #   end
+  # end
+
+  describe "post to toggle_live" do
     before do
-      post :create, :poll => {:title => "A Test Poll", "questions_attributes"=>{"0
-      "=>{"title"=>"With this poll pass the test?"}}}
+      @poll = Poll.find(30)
+      # post :toggle_live, :poll => @poll
     end
 
-    it "should make a polls questions" do
-      expect(assigns(:poll)).to be_a_new(Poll)
-
+    it 'returns http succes' do
+      post 'toggle_live'
+      response.should be_success
     end
   end
 

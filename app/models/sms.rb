@@ -1,5 +1,5 @@
 class Sms < ActiveRecord::Base
-  attr_accessible :account_sid, :body, :date_create, :date_sent, :date_updated, :direction, :from, :sid, :status, :to, :uri=
+  attr_accessible :account_sid, :body, :date_create, :date_sent, :date_updated, :direction, :from, :sid, :status, :to, :uri
   belongs_to :question
-  belongs_to :poll, :through => :questions
+  belongs_to :poll  #removing :through => questions, was throwing an error
 end

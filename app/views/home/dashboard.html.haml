@@ -8,14 +8,19 @@
         %tr#poll.id
           %td
             / Need to add (poll) as it needs the ID to match to the route.
-            =link_to "#{poll.title}", poll_path(poll)
+            =link_to "#{poll.title} #{poll.id}", poll_path(poll)
           %td
             =link_to "Edit", edit_poll_path(poll)
           %td
             - if poll.is_live
-              = link_to "Stop", post, :method=>:toggle_live, :remote=>true :class => 'btn btn-danger'
-            - else
-              = link_to "Start", post, :method => :toggle_live, :remote=>true :class=> 'btn btn-success btn-small',     
+              = link_to "Stop"
+              / , post, :method=>:toggle_live, :remote=>true, :class => 'btn btn-danger stop-poll'
+            - else  
+              = link_to "Start", polls_toggle_live_path(poll.id), :method => :put, :remote => true,  :class=> 'btn btn-success btn-small start-poll'
+              / = form_for(poll.id), :remote => true, polls_toggle_live_path, do |f|
+              /   f.submit
+
+
 
 
   .create-polls.span6

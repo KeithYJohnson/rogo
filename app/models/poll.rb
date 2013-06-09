@@ -4,17 +4,13 @@ class Poll < ActiveRecord::Base
   belongs_to :user
   has_many :questions, :dependent => :destroy
   # This is the plularized form of sms, it's not smss
-  has_many :sms, :through => :questions 
+  has_many :sms  #removing through questions, was throwing an error
   has_many :feedbacks
 
   accepts_nested_attributes_for :questions, :allow_destroy => true
 
   def toggle_live
-    if self.is_live
-      self.is_live = false
-    else
-      self.is_live = true
-    end
+    self.is_live = !self.is_live
   end
 end
 

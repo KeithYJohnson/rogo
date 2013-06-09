@@ -17,10 +17,8 @@ class PollsController < ApplicationController
   end
 
   def create
-    binding.pry
     @poll = current_user.polls.new(params[:poll])
     # @poll = Poll.create(params[:poll])
-    binding.pry
     @poll.save!
     redirect_to root_path
   end
@@ -60,12 +58,9 @@ class PollsController < ApplicationController
   end
 
   def toggle_live
-    @poll = Poll.find(params[:id])
-    
-    respond_to do |format|
-
-    end
-
+    @poll = Poll.find(params[:poll_id])
+    @poll.toggle_live
+    @poll.save!
   end
 
   def edit
