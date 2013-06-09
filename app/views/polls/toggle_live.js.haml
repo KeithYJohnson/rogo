@@ -1,0 +1,12 @@
+console.log('hi');
+console.log("#{@poll.id}");
+console.log("#{@poll.is_live}");
+console.log("a##{@poll.id}");
+if(#{@poll.is_live} == true){
+$("a##{@poll.id}").text("Stop ").removeClass('btn-success').addClass('btn-danger');
+
+}
+else{
+$("a##{@poll.id}").text("Start").removeClass('btn-danger').addClass('btn-success');
+};
+

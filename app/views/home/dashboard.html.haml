@@ -5,27 +5,20 @@
     %h1 Your Polls
     %table.table.striped
       - current_user.polls.each do |poll| 
-        %tr#poll.id
+        %tr
           %td
             / Need to add (poll) as it needs the ID to match to the route.
             =link_to "#{poll.title} #{poll.id}", poll_path(poll)
           %td
             =link_to "Edit", edit_poll_path(poll)
-          %td
+          %td[poll]
             - if poll.is_live
-              = link_to "Stop"
-              / , post, :method=>:toggle_live, :remote=>true, :class => 'btn btn-danger stop-poll'
-            - else  
-              = link_to "Start", polls_toggle_live_path(poll.id), :method => :put, :remote => true,  :class=> 'btn btn-success btn-small start-poll'
-              / = form_for(poll.id), :remote => true, polls_toggle_live_path, do |f|
-              /   f.submit
-
-
-
+              = link_to "Stop", polls_toggle_live_path(poll.id), :method => :put, :remote => true,  :class=> 'btn btn-danger btn-small stop-poll', :id => poll.id
+            -else
+              = link_to "Start", polls_toggle_live_path(poll.id), :method => :put, :remote => true,  :class=> 'btn btn-success btn-small start-poll', :id => poll.id
 
   .create-polls.span6
     = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
 
 
-/ <%= link_to 'Vote', post, :method => :add_point, :remote=>true %>
     
