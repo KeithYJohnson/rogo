@@ -5,8 +5,17 @@
 # the Twilio server side.  
 class SmsController < ApplicationController
   def index
+
   end
 
   def create
+    @sms = Sms.create(:from => params['from'], :body=> params['body'], :to=>params["to"], :uri=>params['uri'])
+
+    @answer = Answer.find(params['body'].to_i)
+    # if @answer == nil 
+    #   @sms.send("error")
+    # @answer.upvote
+    render :nothing => true
   end
+
 end

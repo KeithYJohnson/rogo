@@ -13,3 +13,18 @@ User.blueprint do
   password {'password'}
   password_confirmation {'password'}
 end
+
+Poll.blueprint do
+  title {Faker::Name.name}
+  description {Faker::Company.bs}
+  user
+end
+
+Question.blueprint do
+  title {"What's your question?"}
+end
+
+Answer.blueprint do
+  title {"This is an answer"}
+end
+

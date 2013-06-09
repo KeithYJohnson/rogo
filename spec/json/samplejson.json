@@ -6,7 +6,7 @@
     "account_sid": "AC14aa346613c89fec467663aad46c05a2",
     "to": "+16462363162",
     "from": "+13473217539",
-    "body": "This is a sample text for stubbing.",
+    "body": "1",
     "status": "queued",
     "direction": "outbound-api",
     "api_version": "2010-04-01",
