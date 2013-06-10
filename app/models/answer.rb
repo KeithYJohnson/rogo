@@ -3,8 +3,14 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
 
-  def generate_sms_answer_code
-        
+  before_save :default_vote_count
+
+  def upvote
+    self.votes += 1
+  end
+
+  def default_vote_count
+    self.votes ||= 0
   end
 
 end

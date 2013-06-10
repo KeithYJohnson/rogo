@@ -21,16 +21,23 @@ describe SmsController do
         }
       }
 
-      binding.pry
 
       text = File.open('spec/json/samplejson.json', "r").read
       params = JSON.parse(text)
       post :create, params
+      @answers = @poll.questions[0].answers
     end
 
     it "returns http success" do
       response.should be_success
     end
+
+
+
+    it "adds one to that answer's vote column" do
+      
+    end
+
 
   end
 

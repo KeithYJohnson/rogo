@@ -12,6 +12,10 @@ class SmsController < ApplicationController
     @sms = Sms.create(:from => params['from'], :body=> params['body'], :to=>params["to"], :uri=>params['uri'])
 
     @answer = Answer.find(params['body'].to_i)
+    if @answer != nil
+      @answer.upvote
+    end
+
     # if @answer == nil 
     #   @sms.send("error")
     # @answer.upvote
