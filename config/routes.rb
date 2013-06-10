@@ -43,7 +43,7 @@ Survey::Application.routes.draw do
 
   get "registrations/after_sign_up_path_for"
 
-  get '/sms' => 'sms#create'
+  post '/sms' => 'sms#create'
 
   get "home/index"
 

@@ -3,14 +3,9 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
 
-  before_save :default_vote_count
-
   def upvote
+    binding.pry
     self.votes += 1
-  end
-
-  def default_vote_count
-    self.votes ||= 0
   end
 
 end

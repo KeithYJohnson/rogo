@@ -10,4 +10,12 @@ describe Answer do
     @answer.votes.should eq(0)
   end
 
+  describe '.upvote' do
+
+    it 'should increment votes value by 1' do
+      @answer.upvote.should eq(1)
+    end
+  end
+
+
 end

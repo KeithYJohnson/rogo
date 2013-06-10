@@ -13,6 +13,7 @@ describe SmsController do
 
     before do
       @poll = Poll.make!
+
       1.times { 
         q = @poll.questions.make!
 
@@ -20,25 +21,25 @@ describe SmsController do
           q.answers.make!
         }
       }
-
-
+      
       text = File.open('spec/json/samplejson.json', "r").read
       params = JSON.parse(text)
       post :create, params
-      @answers = @poll.questions[0].answers
+      # @answers = @poll.questions[0].answers
     end
 
-    it "returns http success" do
-      response.should be_success
+    describe "SMS doesn't match an answer" do
+      before do
+        # Would have to mock an out-of-range-sms
+        @sms.create!
+        post :create, @sms
+      end
+
+      it "should send sms" do
+
+      end
+
+
     end
-
-
-
-    it "adds one to that answer's vote column" do
-      
-    end
-
-
   end
-
 end
