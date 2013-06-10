@@ -2,9 +2,7 @@ $backgroundimage : url('putabirdonit.jpg');
 $gray : #333333;
 $hovercolor: #46b9c4;
 
-.dashboard-wrapper{
-  margin-top: 50px;
-}
+
 
 .user-polls {
 
@@ -12,4 +10,22 @@ $hovercolor: #46b9c4;
 
 .create-polls{
 
+}
+// .show-page{
+//   border:2px solid black;
+// }
+
+.graph{
+  border: 2px solid black;
+}
+
+svg.show{
+  // height:  500px;
+  // width:   500px;
+  border: 1px solid black;
+}
+
+.nav-links{
+  float: left;
+  clear: both;
 }
