@@ -34,6 +34,7 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
+    gon.poll = @poll
     @question = @poll.questions[0]
     @answers = @question.answers
     @poll
