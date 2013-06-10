@@ -1,5 +1,8 @@
-%p
+%p.answer-fields
   = f.label :title, "Answer"
   = f.text_field :title
-  = f.check_box :_destroy
-  = f.label :_destroy, "Remove Answer"
+  = f.hidden_field :_destroy
+  = link_to "Remove", "#", :class => 'remove-answer-field'
+  / Pre js 
+  / = f.check_box :_destroy
+  / = f.label :_destroy, "Remove Answer"

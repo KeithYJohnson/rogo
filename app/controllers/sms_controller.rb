@@ -13,7 +13,7 @@ class SmsController < ApplicationController
 
     @answer = Answer.find(params['Body'].to_i)
     binding.pry
-    if @answer == nil
+    if @answer.id == 0
       @client.account.sms.messages.create(
       :from => '+13473217539',
       :to => @sms.from,
