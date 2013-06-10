@@ -1,4 +1,4 @@
-class Question < ActiveRecord::Base
+  class Question < ActiveRecord::Base
   attr_accessible :poll_id, :title, :answers_attributes
 
   belongs_to :poll

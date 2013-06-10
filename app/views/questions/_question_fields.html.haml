@@ -7,5 +7,8 @@
   = f.fields_for :answers do |builder|
     = render "answers/answer_fields", :f => builder
 
+  / f is the form builder, :answers is the name of the association we are adding to
+  = link_to_add_fields "Add Answer", f, :answers
+
 
 / In order for this to work, it has to be enabled in the nested_attributes line in the survey model
