@@ -1,3 +1,4 @@
+# Changed casing in JSON sample; difference in test/real ENVs
 require 'spec_helper'
 
 describe SmsController do
@@ -21,29 +22,30 @@ describe SmsController do
           q.answers.make!
         }
       }
-      
-      text = File.open('spec/json/samplejson.json', "r").read
-      params = JSON.parse(text)
-      post :create, params
-      # @answers = @poll.questions[0].answers
+
     end
 
-    describe "SMS doesn't match an answer" do
+    describe "SMS matches a survey's answer" do
       before do
-        # Would have to mock an out-of-range-sms
-        @sms.create!
-        params['body'] = 'lerkj'
-        post :create, @sms
+        text = File.open('spec/json/samplejson.json', "r").read
+        good_sms = JSON.parse(text)
+        post :create, good_sms
       end
 
-      it "should send sms response if answer is out of range" do
-        before do
-
-        end
-
+      it 'should return http success' do
+        response.should be_success
       end
 
 
     end
+
+    describe "SMS doesn't match a possible survey's answer" do
+      before do
+        file = File.open('spec/json/out_of_range_sms.json', "r").read
+        bad_sms = JSON.parse(file)
+        post :create, bad_sms
+      end
+    end
+
   end
 end

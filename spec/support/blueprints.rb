@@ -26,9 +26,10 @@ end
 
 Answer.blueprint do
   title {"This is an answer"}
+  votes {0}
 end
 
-SMS.blueprint do
+Sms.blueprint do
   from {"+13473217539"}
   to {(Faker::PhoneNumber.cell_phone).to_s}
   body {'23s'}

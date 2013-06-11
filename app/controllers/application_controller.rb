@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   account_sid = ENV['account_sid']
   auth_token = ENV['auth_token']
   @client = Twilio::REST::Client.new account_sid, auth_token
+  @account = @client.account
 
 end

@@ -6,7 +6,7 @@
     "account_sid": "AC14aa346613c89fec467663aad46c05a2",
     "To": "+16462363162",
     "From": "+13473217539",
-    "Body": "1",
+    "Body": "dk12",
     "status": "queued",
     "direction": "outbound-api",
     "api_version": "2010-04-01",
