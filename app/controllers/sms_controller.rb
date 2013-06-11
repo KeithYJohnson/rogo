@@ -20,6 +20,7 @@ class SmsController < ApplicationController
       :body => "Sorry that wasn't a valid option"
       )
     else
+      binding.pry
       @answer.upvote
 
     end

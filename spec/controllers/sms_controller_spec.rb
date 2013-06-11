@@ -32,10 +32,14 @@ describe SmsController do
       before do
         # Would have to mock an out-of-range-sms
         @sms.create!
+        params['body'] = 'lerkj'
         post :create, @sms
       end
 
-      it "should send sms" do
+      it "should send sms response if answer is out of range" do
+        before do
+
+        end
 
       end
 
