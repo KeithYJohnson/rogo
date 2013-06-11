@@ -3,7 +3,7 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
 
-  def upvote
+  def upvote  
     self.votes += 1
   end
 

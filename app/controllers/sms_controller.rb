@@ -15,8 +15,8 @@ class SmsController < ApplicationController
 
     if Answer.exists?(params['Body'].to_i)
       @answer = Answer.find(params['Body'].to_i) 
-      binding.pry
       @answer.upvote
+      @answer.save
     else 
       @account = client.account
       @message = @account.sms.messages.create({

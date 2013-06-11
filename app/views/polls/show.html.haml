@@ -1,5 +1,9 @@
 Above TB Divs
-/ .show-page.span12
+/ For AJAX, setting div class to poll.id
+%div{:id => 'ajaxurl', :class => @poll.id}
+  :javascript
+    pollServer();
+
 .survey-data.span5
   %h1= @poll.title 
   %p= @poll.description

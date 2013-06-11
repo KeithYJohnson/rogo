@@ -27,16 +27,16 @@ describe SmsController do
     describe "SMS matches a survey's answer" do
       before do
         text = File.open('spec/json/samplejson.json', "r").read
-        good_sms = JSON.parse(text)
-        post :create, good_sms
+        @good_sms = JSON.parse(text)
+        post :create, @good_sms
       end
 
       it 'should create an sms object' do
-      
+        assigns(:sms).from.should be
       end 
 
       it 'should find a matching answer' do
-        Answer.exists?(good_sms['Body'].to_i).should eq(true)
+        Answer.exists?(@good_sms['Body'].to_i).should eq(true)
       end
 
       it 'should return http success' do
@@ -50,12 +50,12 @@ describe SmsController do
     describe "SMS doesn't match a possible survey's answer" do
       before do
         file = File.open('spec/json/out_of_range_sms.json', "r").read
-        bad_sms = JSON.parse(file)
-        post :create, bad_sms
+        @bad_sms = JSON.parse(file)
+        post :create, @bad_sms
       end
 
       it 'should not find a matching answer' do
-        Answer.exists?(bad_sms['Body'].to_i).should eq(false)
+        Answer.exists?(@bad_sms['Body'].to_i).should eq(false)
       end 
     end
 
