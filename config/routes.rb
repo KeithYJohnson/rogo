@@ -24,6 +24,8 @@ Survey::Application.routes.draw do
 
   get "answers/destroy"
 
+  match "polls/:id" => "polls#destroy", :via => :delete, :as => :delete_poll
+
   match '/polls/toggle_live/:poll_id' => 'polls#toggle_live', :via => :put, :as => 'polls_toggle_live'
 
   # :controllers => { :registrations => "registrations" },
@@ -33,7 +35,7 @@ Survey::Application.routes.draw do
   devise_for :users
   
   devise_scope :users do
-    resources :polls do
+    resources :polls, :except => [:destroy] do
       resources :questions, :except => [:index] do
         resources :answer, :except => [:index]
       end

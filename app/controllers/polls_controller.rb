@@ -72,4 +72,10 @@ class PollsController < ApplicationController
     @answers = @questions.answers
   end
 
+  def destroy
+    @poll = Poll.find(params[:id])
+    @poll.destroy
+    render :nothing => true
+  end
+
 end
