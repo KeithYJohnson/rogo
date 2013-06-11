@@ -34,9 +34,9 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
-    # Mappning answer titles with their votes 
+    # Mapping answer titles with their votes 
     gon.poll = @poll.questions[0].answers.map{|answer| [answer.title, answer.votes]}
-    binding.pry
+    gon.votes = @poll.questions[0].answers.map{|answer| answer.votes}
     @question = @poll.questions[0]
     @answers = @question.answers
     @poll
