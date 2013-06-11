@@ -3,12 +3,11 @@ require 'spec_helper'
 
 describe SmsController do
 
-  # describe "GET 'index'" do
-  #   it "returns http success" do
-  #     get 'index'
-  #     response.should be_success
-  #   end
-  # end
+  before do
+    test_account_sid = 'ACa7ebbf165e2a6cdbcc9269fce923e235'
+    test_auth_token = '3161184af1b4876b296c6b92d8ba9dea'
+    client = Twilio::REST::Client.new test_account_sid, test_auth_token
+  end
 
   describe "POST 'create'" do
 
@@ -32,9 +31,18 @@ describe SmsController do
         post :create, good_sms
       end
 
+      it 'should create an sms object' do
+      
+      end 
+
+      it 'should find a matching answer' do
+        Answer.exists?(good_sms['Body'].to_i).should eq(true)
+      end
+
       it 'should return http success' do
         response.should be_success
       end
+
 
 
     end
@@ -45,6 +53,10 @@ describe SmsController do
         bad_sms = JSON.parse(file)
         post :create, bad_sms
       end
+
+      it 'should not find a matching answer' do
+        Answer.exists?(bad_sms['Body'].to_i).should eq(false)
+      end 
     end
 
   end

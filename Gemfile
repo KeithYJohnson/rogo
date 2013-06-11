@@ -23,7 +23,7 @@ gem 'gon'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'sms-spec'
+  # gem 'sms-spec'
   gem 'annotate'
   gem 'quiet_assets'
   gem 'pry-debugger'

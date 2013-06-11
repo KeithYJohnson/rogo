@@ -3,6 +3,7 @@
 # unique Twilio #' is done
 # This will require dynamic routing on 
 # the Twilio server side.  
+
 class SmsController < ApplicationController
   def index
 
@@ -12,26 +13,21 @@ class SmsController < ApplicationController
 
     @sms = Sms.create(:from => params['From'], :body=> params['Body'], :to=>params["To"], :uri=>params['Uri'])
 
-    @answer = Answer.find(params['Body'].to_i) if Answer.exists?(params['Body'].to_i)
-    if @answer && @answer.id == 0
-      binding.pry
-      @message = @account.sms.messages.create({
-      :from => '+13473217539',
-      :to => @sms.from,
-      :body => "Sorry that wasn't a valid option"
-      })
-      puts @message
-    else
+    if Answer.exists?(params['Body'].to_i)
+      @answer = Answer.find(params['Body'].to_i) 
       binding.pry
       @answer.upvote
-
+    else 
+      @account = client.account
+      @message = @account.sms.messages.create({
+      :from => '+13473217539',
+      :to => '+16462363162',
+      :body => "Sorry that wasn't a valid option"
+      })
+      binding.pry
+      puts @message
     end
-
-    # if @answer == nil 
-    #   @sms.send("error")
-    # @answer.upvote
     render :nothing => true
   end
 
 end
-

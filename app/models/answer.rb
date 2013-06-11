@@ -4,7 +4,6 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   def upvote
-    binding.pry
     self.votes += 1
   end
 
