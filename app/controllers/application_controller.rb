@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   # def after_sign_in_path_for(current_user)
   #   dashboard_url
   # end
-  def client
-    account_sid = ENV['account_sid']
-    auth_token = ENV['auth_token']
-    client = Twilio::REST::Client.new(account_sid, auth_token)
+  # def client
+  #   account_sid = ENV['account_sid']
+  #   auth_token = ENV['auth_token']
+  #   client = Twilio::REST::Client.new(account_sid, auth_token)
 
-  end
+  # end
 
 end
