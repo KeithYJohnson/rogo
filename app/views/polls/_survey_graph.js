@@ -7,16 +7,14 @@ function drawSurvey(data_votes){
   var svg = d3.select('svg')  
   var bars = svg.selectAll("rect")
      .data(data_votes);
-
-     // Each data point entered into enter() for processing
      bars.enter()
      .append("rect")
      // .transition()
      //   .duration(1000);
 
      bars.attr("x", function(d, i) {
-        return i * (w / data_votes.length);  //Bar width of 20 plus 1 for padding
-    // tying of each bar as a function to length of set, never runs off screen
+        return i * (w / data_votes.length); 
+
      })
      .attr("y", function(d){
         return h-d; 
@@ -41,8 +39,9 @@ function drawSurvey(data_votes){
       console.log(d);
       return d;
    })
+   .attr("text-anchor", "middle")
    .attr("x", function(d, i) {
-      return i * (w / data_votes.length) + 20;  //Bar width of 20 plus 1 for padding
+      return i * (w / data_votes.length) + (w / data_votes.length - barPadding) / 2;;  //Bar width of 20 plus 1 for padding
   // tying of each bar as a function to length of set, never runs off screen
    })
    .attr("y", function(d){
