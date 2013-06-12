@@ -32,7 +32,7 @@ function drawSurvey(data_votes){
 
      bars.exit().remove();
 
-  bars = svg.selectAll("text")
+  bars =  svg.selectAll("text")
    .data(data_votes)
    .enter()
    .append("text")
@@ -41,14 +41,16 @@ function drawSurvey(data_votes){
       console.log(d);
       return d;
    })
-   bars.attr("x", function(d, i) {
-      return i * (w / data_votes.length);  //Bar width of 20 plus 1 for padding
+   .attr("x", function(d, i) {
+      return i * (w / data_votes.length) + 20;  //Bar width of 20 plus 1 for padding
   // tying of each bar as a function to length of set, never runs off screen
    })
    .attr("y", function(d){
-      return h-d; 
+      return h-d + 12; 
    }) 
-}
+   .attr("fill", "white")
+   .attr("font-family", "sans-serif")
+} 
 
 $(document).ready(function() {
     var w = 500;
