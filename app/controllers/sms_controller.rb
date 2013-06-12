@@ -19,13 +19,7 @@ class SmsController < ApplicationController
     else 
       @message = "Sorry that wasn't a valid option"
       Text.out_of_range_text_response(@sms.from, @message)
-      # @account = client.account
-      # @message = @account.sms.messages.create({
-      # :from => '+13473217539',
-      # :to => @sms.from,
-      # :body => "Sorry that wasn't a valid option"
-      # })
-      # puts @message
+
     end
     render :nothing => true
   end
