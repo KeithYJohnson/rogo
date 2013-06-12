@@ -3,7 +3,7 @@ function drawSurvey(data_votes){
   var w = 500;
   var h = 420;
   // var height = data_votes.length < 2 ? 
-  var barPadding = 1;
+  var barPadding = 50;
   var svg = d3.select('svg')  
   var bars = svg.selectAll("rect")
      .data(data_votes);
@@ -17,14 +17,15 @@ function drawSurvey(data_votes){
 
      })
      .attr("y", function(d){
-        return h-d; 
+        return h-(d*10); 
      })
      // Less bars == more width
      .attr("width", w / data_votes.length - barPadding)
-     .attr("height", function(d){
-        var barHeight = 50*d; 
-        return barHeight; 
+     .attr("height", function(d) {
+        return d * 10 ;
+
      })
+     .attr("rx", 10)
 
      .attr("fill", "teal");
 
@@ -45,7 +46,7 @@ function drawSurvey(data_votes){
   // tying of each bar as a function to length of set, never runs off screen
    })
    .attr("y", function(d){
-      return h-d + 12; 
+      return h-d; 
    }) 
    .attr("fill", "white")
    .attr("font-family", "sans-serif")

@@ -24,9 +24,11 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
-    # Mapping answer titles with their votes 
-    gon.poll = @poll.questions[0].answers.map{|answer| [answer.title, answer.votes]}
+    # Restructing data for easy access in _survey_graph.js
+    # ie: data_votes[3] returns array of votes now.
     gon.votes = @poll.questions[0].answers.map{|answer| answer.votes}
+    gon.poll_ids = @poll.questions[0].answers.map{|answer| answer.id}
+    gon.titles = @poll.questions[0].answers.map{|answer| answer.title}
     @question = @poll.questions[0]
     @answers = @question.answers
 
@@ -35,7 +37,7 @@ class PollsController < ApplicationController
       format.html { @poll}
 
       format.js {
-        render json: gon.votes
+        render json: [gon.poll_ids, gon.titles, gon.votes]
       }
     end
   end

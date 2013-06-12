@@ -12,7 +12,7 @@ function pollServer(){
         dataType: 'json',
         url: '/polls/' + id, 
         success: function(data){
-          drawSurvey(data);
+          drawSurvey(data[2]);
         },
 
 
