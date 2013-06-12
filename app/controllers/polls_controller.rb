@@ -29,6 +29,8 @@ class PollsController < ApplicationController
     gon.votes = @poll.questions[0].answers.map{|answer| answer.votes}
     gon.poll_ids = @poll.questions[0].answers.map{|answer| answer.id}
     gon.titles = @poll.questions[0].answers.map{|answer| answer.title}
+    gon.poll_data = [gon.poll_ids, gon.titles , gon.votes ]
+
     @question = @poll.questions[0]
     @answers = @question.answers
 
@@ -37,7 +39,7 @@ class PollsController < ApplicationController
       format.html { @poll}
 
       format.js {
-        render json: [gon.poll_ids, gon.titles, gon.votes]
+        render json: gon.poll_data
       }
     end
   end

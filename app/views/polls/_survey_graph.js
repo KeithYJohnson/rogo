@@ -1,4 +1,5 @@
-function drawSurvey(data_votes){
+function drawSurvey(all_data){
+  var data_votes = all_data[2];
   showTotalVotes(data_votes);
   var w = 500;
   var h = 420;
@@ -8,9 +9,9 @@ function drawSurvey(data_votes){
   var bars = svg.selectAll("rect")
      .data(data_votes);
      bars.enter()
+
      .append("rect")
-     // .transition()
-     //   .duration(1000);
+
 
      bars.attr("x", function(d, i) {
         return i * (w / data_votes.length); 
@@ -61,7 +62,7 @@ $(document).ready(function() {
                 .attr("width", w)
                 .attr("height",h);
 
-  var votes = gon.votes;
+  var votes = gon.poll_data;
   drawSurvey(votes);
 
 });
