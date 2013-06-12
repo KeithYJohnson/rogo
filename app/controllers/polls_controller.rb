@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-
+  respond_to :html, :js
   def index
 
     @polls
@@ -29,7 +29,15 @@ class PollsController < ApplicationController
     gon.votes = @poll.questions[0].answers.map{|answer| answer.votes}
     @question = @poll.questions[0]
     @answers = @question.answers
-    @poll
+
+    respond_to do |format|
+
+      format.html { @poll}
+
+      format.js {
+        render json: gon.votes
+      }
+    end
   end
 
   def process_sms

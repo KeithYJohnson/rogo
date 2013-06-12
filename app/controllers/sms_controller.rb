@@ -24,7 +24,6 @@ class SmsController < ApplicationController
       :to => '+16462363162',
       :body => "Sorry that wasn't a valid option"
       })
-      binding.pry
       puts @message
     end
     render :nothing => true
