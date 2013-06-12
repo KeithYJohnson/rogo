@@ -1,5 +1,6 @@
 function drawSurvey(data_votes){
-  console.log('new drawSurvey call')
+  showTotalVotes(data_votes);
+  console.log('new drawSurvey call');
   var w = 500;
   var h = 420;
   // var height = data_votes.length < 2 ? 
@@ -7,6 +8,7 @@ function drawSurvey(data_votes){
   var svg = d3.select('svg')  
   var bars = svg.selectAll("rect")
      .data(data_votes);
+
      // Each data point entered into enter() for processing
      bars.enter()
      .append("rect");
@@ -22,8 +24,9 @@ function drawSurvey(data_votes){
      // Less bars == more width
      .attr("width", w / data_votes.length - barPadding)
      .attr("height", function(d){
-        console.log(d);  
-        return d;
+        console.log(d); 
+        var barHeight = d*5; 
+        return barHeight; 
      })
 
      .attr("fill", "teal");
@@ -46,12 +49,3 @@ $(document).ready(function() {
 
 });
 
-function redraw(data) {
-    var svg = d3.select('svg')
-    svg.selectAll("rect")
-        .data(data)
-      .transition()
-        .duration(1000)
-        .attr("y", function(d) { return h - y(d.value) - .5; })
-        .attr("height", function(d) { return y(d.value); });
-}

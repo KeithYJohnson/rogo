@@ -40,6 +40,10 @@ class PollsController < ApplicationController
     end
   end
 
+  def tally_votes
+
+  end
+
   def process_sms
 
   end

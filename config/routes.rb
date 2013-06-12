@@ -27,7 +27,7 @@ Survey::Application.routes.draw do
   match "polls/:id" => "polls#destroy", :via => :delete, :as => :delete_poll
 
   match '/polls/toggle_live/:poll_id' => 'polls#toggle_live', :via => :put, :as => 'polls_toggle_live'
-
+  
   # :controllers => { :registrations => "registrations" },
   # match '/dashboard' => 'home#dashboard', :as => 'user_root'
   # , :paths => { :sign_up => "dashboard" }
