@@ -12,7 +12,7 @@ class SmsController < ApplicationController
   def create
 
     @sms = Sms.create(:from => params['From'], :body=> params['Body'], :to=>params["To"], :uri=>params['Uri'])
-
+    binding.pry
     if Answer.exists?(params['Body'].to_i)
       @answer = Answer.find(params['Body'].to_i) 
       @answer.upvote
@@ -21,7 +21,7 @@ class SmsController < ApplicationController
       @account = client.account
       @message = @account.sms.messages.create({
       :from => '+13473217539',
-      :to => '+16462363162',
+      :to => @sms.from,
       :body => "Sorry that wasn't a valid option"
       })
       puts @message
