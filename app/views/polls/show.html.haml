@@ -4,14 +4,14 @@
   :javascript
     pollServer();
 
-.survey-data
+.survey-data.span12 
   %ul.poll-data
-    %li
+    %li#question-title
       / .text-to
-      %h1= "#{@question.title}     "
+      %h1= "#{@question.title}"
     %li
       / .poll-question
-      %h3 Text Answer to 347-321-7539
+      %%h3 Text Answer to 347-321-7539
 
 .poll-data-render.span12
   / Found in root view. 

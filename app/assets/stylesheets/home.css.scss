@@ -2,8 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $backgroundimage : url('putabirdonit.jpg');
-$gray : #333333;
-$hovercolor: #46b9c4;
+$darkblue : rgb(44,62,80);
+$tomato : rgb(231,76,60);
+$whitesmoke: rgb(236,240,241);
+$lightblue : rgb(52,152,219);
+$blue : rgb(41,128,185);
+
+$gray : rgb(198,198,198);
+$hovercolor: $tomato;
 
 
 html {
@@ -12,13 +18,16 @@ html {
 
 body{
   background-image: $backgroundimage;
+  background-repeat: no-repeat;
+  background-color:$gray;
 }
 
 // HomePage Text
 
 div.page-titles{
+  margin-top: 50px; 
   font-family: Domine;
-  color: $gray;
+  color: $darkblue;
   // padding is a Hack to line up with li el's
   padding-left: 42px;
 
@@ -27,7 +36,9 @@ div.page-titles{
   }
 
   h4 {
+    font-family: "HelveticaNeue-Light";
     font-size: 20px;
+    font-weight: 100;
   }
 }
 
@@ -35,11 +46,12 @@ div.page-titles{
 // Nav Bar
 .navcontainer{
   width: 100%;
-  background: $gray;
+  background: $darkblue;
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 60px;
+  height: 40px;
+  padding-bottom: 10px;
 
   ul li{
     float: left;
@@ -49,7 +61,7 @@ div.page-titles{
       color: white;
       text-decoration: none;
       float: left;
-      font-family: Domine;
+      font-family: "Domine";
       text-transform: uppercase;
       font-size: 25px;
       padding-left: 15px; 

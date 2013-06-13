@@ -1,10 +1,10 @@
-.dashboard-wrapper.row
-  .user-polls.span6
-    %h1 Your Polls
+.dashboard-wrapper.row.span12 
+  .user-polls.span8
+    %h2 Your Polls
     %table.table.striped
       - current_user.polls.each do |poll| 
         %tr.polls-data
-          %td
+          %td.poll-show
             / Need to add (poll) as it needs the ID to match to the route.
             =link_to "#{poll.title} #{poll.id}", poll_path(poll)
           %td
@@ -17,7 +17,7 @@
             %td
               = link_to "Delete", delete_poll_path(poll.id),:remote => true, :id => poll.id, :method => :delete, :class => 'btn btn-danger btn-small delete-poll'
 
-  .create-polls.span6
+  .create-polls.span4
     = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
 
 

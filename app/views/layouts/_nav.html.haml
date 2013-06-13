@@ -1,18 +1,19 @@
 %div#container
   %ul#nav
     %li 
-      = link_to 'Home', root_url
+      = link_to 'Home |', root_url
     %li
-      = link_to "About", root_url
+      = link_to "About |", root_url
     %li 
-      = link_to "Contact", root_url
-    - if current_user
-      %li#email
-        %p Logged In As #{current_user.email}.
-      %li#logout
-        = link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-inverse'
-    - else
-      %li
-        = link_to "Sign up", new_user_registration_path
-      %li
-        = link_to "Sign in", new_user_session_path
+      = link_to "Contact |", root_url
+    .session
+      - if current_user
+        %li#email
+          %p Logged In As #{current_user.email} 
+        %li#logout
+          = link_to "Log Out", destroy_user_session_path, :method => :delete
+      - else
+        %li
+          = link_to "Sign up", new_user_registration_path
+        %li
+          = link_to "Sign in", new_user_session_path

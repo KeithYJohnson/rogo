@@ -1,15 +1,15 @@
-$backgroundimage : url('putabirdonit.jpg');
+$backgroundimage : url('textured_paper.jpg');
 $gray : #333333;
 $hovercolor: #46b9c4;
 
 
 .poll-data-render{
-  border: 2px solid black;
+  // border: 2px solid black;
 }
 
 svg {
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: -10px;
   margin-right: 20px;
   margin-bottom: 50px;
   padding-bottom:50px;
@@ -38,8 +38,13 @@ div.poll-data-render{
   height:500px;
 
   .total-votes{
+    text-align: center;
     h3{
       font-size: 100px;
+      color: rgb(168, 56, 56);
+
+      // margin: auto;
+      // margin-left: 30px;
       // border: 1px solid black;
       // border-radius: 50%;
     }
@@ -47,24 +52,31 @@ div.poll-data-render{
 }
 
 ul.poll-data{
-
+  float:left;
 
   li{
 
-    float:left;
+
     list-style: none;
-    display: inline-block;
     width: 40%;
     padding-left: 25px;
     margin: auto;  
     text-align: center;
+
+    h1{
+      text-transform: capitalize;
+    }
 
   }
 }
 
 .poll-data-render div{
   float:left;
-  display: inline-block;
+  display: block;
+}
+
+table{
+  margin-left: 25px;
 }
 
  

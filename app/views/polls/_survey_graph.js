@@ -26,7 +26,7 @@ function drawSurvey(all_data){
     //   return d.title;
     // });
 
-  var yScale = d3.scale.linear()
+  yScale = d3.scale.linear()
     .domain([0,d3.max(gon.votes)])
     .range([0,h]);
 
@@ -48,6 +48,9 @@ function drawSurvey(all_data){
       })
        // Less bars == more width
       .attr("width", w / all_data.length - barPadding)
+      .transition()
+      .duration(500)
+
       .attr("height", function(d) {
           barHeight = yScale(d.votes); 
           return barHeight;
@@ -55,12 +58,10 @@ function drawSurvey(all_data){
       .attr("rx", 10)
       .attr('id', function(d){
           return d.id;  
-          appendTitles(d.id)
       }) 
 
       .attr("fill", "teal")
-      .transition()
-      .duration(500);
+
 
     bars.exit()
       .transition()
@@ -94,9 +95,6 @@ function drawSurvey(all_data){
       .call(xAxis)
       .attr("class", "axis")
       .attr("transform", "translate(0," + (h+15) + ")");
-
-    
-
 } 
 
 
