@@ -1,28 +1,35 @@
-Above TB Divs
+
 / For AJAX, setting div class to poll.id
 %div{:id => 'ajaxurl', :class => @poll.id}
   :javascript
     pollServer();
 
-.survey-data.span5
-  %h1= @poll.title 
-  %p= @poll.description
+.survey-data
+  %ul.poll-data
+    %li
+      / .text-to
+      %h1= "#{@question.title}     "
+    %li
+      / .poll-question
+      %h3 Text Answer to 347-321-7539
 
-  / My Twilio Number.  
-  / User will be able to purchase their own and 
-  / It will render here
-  %h2 Text to 347-321-7539
+.poll-data-render.span12
+  / Found in root view. 
+  .graph.span7
+    %script 
+      = render 'survey_graph.js'
+  .total-vote.count.span4
+    .total-votes
 
-  /Will have to change with multi-question feature.
-  %h3= @question.title
 
-  %table.table.striped.table-hover
-    - @answers.each do |answer|
-      %tr
-        %td= answer.title
-        %td= "TEXT #{answer.id} to Vote"
-  %br
-  .total-votes.span5
+
+
+%table.table.striped.table-hover
+  - @answers.each do |answer|
+    %tr
+      %td= answer.title
+      %td= "TEXT #{answer.id} to Vote"
+%br
 
 
 .graph.span6

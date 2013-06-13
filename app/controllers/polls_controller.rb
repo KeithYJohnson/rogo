@@ -24,19 +24,18 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
-    # Restructing data for easy access in _survey_graph.js
-    # ie: data_votes[3] returns array of votes now.
+
 
     # using for showTotalVotes
     gon.votes = @poll.questions[0].answers.map{|answer| answer.votes}
 
-    gon.poll_ids = @poll.questions[0].answers.map{|answer| answer.id}
+    # gon.poll_ids = @poll.questions[0].answers.map{|answer| answer.id}
     gon.titles = @poll.questions[0].answers.map{|answer| answer.title}
-    gon.poll_data = [gon.poll_ids, gon.titles , gon.votes ]
-    gon.answer = @poll.questions[0].answers
+    # gon.poll_data = [gon.poll_ids, gon.titles , gon.votes ]
+    # gon.answer = @poll.questions[0].answers
 
 
-    gon.poll_hash = @poll.questions[0].answers.map{|answer| answer = {:id=> answer.id, :title => answer.title, :votes => answer.votes} }  
+    # gon.poll_hash = @poll.questions[0].answers.map{|answer| answer = {:id=> answer.id, :title => answer.title, :votes => answer.votes} }  
 
     @question = @poll.questions[0]
     @answers = @question.answers

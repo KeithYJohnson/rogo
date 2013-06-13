@@ -3,29 +3,68 @@ $gray : #333333;
 $hovercolor: #46b9c4;
 
 
-
-.user-polls {
-
-}
-
-.create-polls{
-
-}
-// .show-page{
-//   border:2px solid black;
-// }
-
-.graph{
+.poll-data-render{
   border: 2px solid black;
 }
 
-svg.show{
-  // height:  500px;
-  // width:   500px;
-  border: 1px solid black;
+svg {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 50px;
+  padding-bottom:50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .nav-links{
   float: left;
   clear: both;
 }
+.axis path,
+.axis line {
+    fill: none;
+    color: white;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+div.poll-data-render{
+  height:500px;
+
+  .total-votes{
+    h3{
+      font-size: 100px;
+      border: 1px solid black;
+      border-radius: 50%;
+    }
+  }
+}
+
+ul.poll-data{
+
+
+  li{
+
+    float:left;
+    list-style: none;
+    display: inline-block;
+    width: 40%;
+    padding-left: 25px;
+    margin: auto;  
+    text-align: center;
+
+  }
+}
+
+.poll-data-render div{
+  float:left;
+  display: inline-block;
+}
+
+ 
