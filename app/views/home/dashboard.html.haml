@@ -1,4 +1,5 @@
 .dashboard-wrapper.row.span12 
+
   .user-polls.span8
     %h2 Your Polls
     %table.table.striped
@@ -18,7 +19,7 @@
               = link_to "Delete", delete_poll_path(poll.id),:remote => true, :id => poll.id, :method => :delete, :class => 'btn btn-danger btn-small delete-poll'
 
   .create-polls.span4
-    = link_to "Create Poll", new_poll_path, :class => 'btn btn-success'
+    = link_to "Create Poll", new_poll_path, :class => 'btn btn-success btn-large'
 
 
     
