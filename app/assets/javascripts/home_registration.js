@@ -4,12 +4,13 @@ $(document).ready(function() {
 
 
   $('a#signup').click(function(){
-    $('.registration').toggle( "slide" );
+    $('.registration').fadeIn( "slide" );
+    // $('.page-titles').append('<p>hi</hi>');
     $('.login').hide('slow');
   });
 
   $('a#login').click(function(){
-    $('.login').toggle('slide');
+    $('.login').fadeIn('slide');
     $('.registration').hide('slow');
   });
 
