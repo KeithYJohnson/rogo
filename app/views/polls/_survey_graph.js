@@ -82,7 +82,7 @@ function drawSurvey(all_data){
         // tying of each bar as a function to length of set, never runs off screen
         })
         .attr("y", function(d){
-            return h-yScale(d.votes)+20;
+            return h-yScale(d.votes)+40;
         }) 
         .attr("fill", "white")
         .attr("font-family", "sans-serif")
@@ -93,7 +93,7 @@ function drawSurvey(all_data){
     bars = svg.append("g")
       .call(xAxis)
       .attr("class", "axis")
-      .attr("transform", "translate(0," + (h-20) + ")");
+      .attr("transform", "translate(0," + (h+15) + ")");
 
     
 
